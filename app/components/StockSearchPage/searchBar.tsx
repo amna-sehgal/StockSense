@@ -29,7 +29,7 @@ export default function SearchBar() {
         stock.symbol.toLowerCase().includes(searchQuery.toLowerCase()) ||
         stock.name.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    : stocks.slice(0, 4); // Show first 4 stocks by default
+    : stocks.slice(0, 4); 
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -44,7 +44,7 @@ export default function SearchBar() {
   };
 
   const handleBlur = () => {
-    // Delay closing to allow click on suggestions to register
+     suggestions to register
     setTimeout(() => {
       setShowSuggestions(false);
     }, 200);
