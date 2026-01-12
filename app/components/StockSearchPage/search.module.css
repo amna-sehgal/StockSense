@@ -7,7 +7,7 @@
   position: relative;
 }
 
-/* Search Section */
+
 .searchContainer {
   margin-bottom: 60px;
   margin-top: 40px;
@@ -76,7 +76,7 @@
   transform: rotate(90deg);
 }
 
-/* Suggestions Dropdown */
+
 .suggestionsContainer {
   position: absolute;
   top: 100%;
@@ -186,7 +186,7 @@
   scrollbar-width: thin;
 }
 
-/* News Section */
+
 .newsTitle {
   font-size: 2.5rem;
   background: linear-gradient(120deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
@@ -206,7 +206,7 @@
   margin-bottom: 40px;
 }
 
-/* News Card */
+
 .newsCard {
   background: linear-gradient(
     180deg,
@@ -247,7 +247,7 @@
   border-left: 4px solid #ef4444;
 }
 
-/* Image Container */
+
 .imageContainer {
   position: relative;
   width: 100%;
@@ -266,7 +266,7 @@
   transform: scale(1.08);
 }
 
-/* Badge */
+
 .badge {
   position: absolute;
   top: 15px;
@@ -307,7 +307,7 @@
   transform: scale(1.1);
 }
 
-/* Card Content */
+
 .cardContent {
   padding: 20px;
   display: flex;
