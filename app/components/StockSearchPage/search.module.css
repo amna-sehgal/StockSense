@@ -517,3 +517,43 @@
 
   filter: blur(2px);
 }
+/* Analyze Sentiment Button */
+.analyzeButton {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 250px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+  background: linear-gradient(120deg, #10b981 0%, #34d399 100%);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.analyzeButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 50px rgba(16, 185, 129, 0.8), 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.analyzeButton:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .analyzeButton {
+    max-width: 100%;
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+}

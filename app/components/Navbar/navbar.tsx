@@ -1,16 +1,20 @@
 'use client';
 import { motion } from 'framer-motion';
 import styles from './navbar.module.css';
-
-const links = [
-  'Home',
-  'Stock Search',
-  'Sentiment Dashboard',
-  'News + Social Feed',
-  'Insights Summary',
-];
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const links = [
+    { name: 'Home', href: '/' },
+    { name: 'Stock Search', href: '/search' },
+    { name: 'Sentiment Dashboard', href: '/dashboard' },
+    { name: 'News + Social Feed', href: '/feed' },
+    { name: 'Insights Summary', href: '/insights' },
+  ];
+
   return (
     <motion.nav
       className={styles.navbar}
@@ -20,15 +24,23 @@ export default function Navbar() {
     >
       {/* LEFT – BRAND */}
       <div className={styles.navLeft}>
-        <span className={styles.brand}>StockSense</span>
+        <Link href="/" className={styles.brand}>
+          StockSense
+        </Link>
       </div>
 
       {/* RIGHT – LINKS */}
       <div className={styles.navRight}>
-        {links.map((link, i) => (
-          <a key={i} href="#" className={styles.navLink}>
-            {link}
-          </a>
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`${styles.navLink} ${
+              pathname === link.href ? styles.active : ''
+            }`}
+          >
+            {link.name}
+          </Link>
         ))}
       </div>
     </motion.nav>

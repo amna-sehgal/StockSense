@@ -77,3 +77,24 @@
 .navLink:hover::after {
   width: 100%;
 }
+.navLink {
+  position: relative;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  color: #10b981; /* Optional hover color */
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #10b981, #34d399, #3bf6c7);
+  box-shadow: 0 0 8px #10b981, 0 0 16px #3bf6be;
+}

@@ -24,14 +24,14 @@ export default function SearchBar() {
     { symbol: 'SAP', name: 'SAP SE', price: 108.50, change: 3 },
   ];
 
-  const filteredStocks = searchQuery.length > 0 
+  const filteredStocks = searchQuery.length > 0
     ? stocks.filter(stock =>
-        stock.symbol.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        stock.name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : stocks.slice(0, 4); 
+      stock.symbol.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      stock.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    : stocks.slice(0, 4);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchQuery(value);
     setShowSuggestions(true);
@@ -44,13 +44,14 @@ export default function SearchBar() {
   };
 
   const handleBlur = () => {
-     suggestions to register
+    // suggestions to register
     setTimeout(() => {
       setShowSuggestions(false);
     }, 200);
   };
 
-  const handleKeyDown = (e) => {
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!showSuggestions) return;
 
     switch (e.key) {
@@ -175,7 +176,7 @@ export default function SearchBar() {
 
   return (
     <div className={styles.container}>
-     
+
       <motion.div
         className={styles.searchContainer}
         initial={{ y: -50, opacity: 0 }}
@@ -224,9 +225,8 @@ export default function SearchBar() {
             {filteredStocks.slice(0, 8).map((stock, index) => (
               <motion.div
                 key={stock.symbol}
-                className={`${styles.suggestionItem} ${
-                  selectedIndex === index ? styles.selected : ''
-                }`}
+                className={`${styles.suggestionItem} ${selectedIndex === index ? styles.selected : ''
+                  }`}
                 onClick={() => handleSelectStock(stock)}
                 whileHover={{ backgroundColor: 'rgba(16, 185, 129, 0.2)' }}
                 initial={{ opacity: 0, x: -10 }}
@@ -249,7 +249,7 @@ export default function SearchBar() {
         </div>
       </motion.div>
 
-      
+
       <motion.h2
         className={styles.newsTitle}
         initial={{ opacity: 0 }}
@@ -259,7 +259,7 @@ export default function SearchBar() {
         📰 Stock Market News & Insights
       </motion.h2>
 
-     
+
       <motion.div
         className={styles.newsGrid}
         initial={{ y: 50, opacity: 0 }}
@@ -275,7 +275,7 @@ export default function SearchBar() {
             transition={{ delay: index * 0.1 }}
             whileHover={{ translateY: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
           >
-            
+
             <div className={styles.imageContainer}>
               <img src={article.image} alt={article.title} className={styles.articleImage} />
               <div className={`${styles.badge} ${styles[article.trend]}`}>
@@ -291,7 +291,7 @@ export default function SearchBar() {
               </div>
             </div>
 
-            
+
             <div className={styles.cardContent}>
               <div className={styles.meta}>
                 <span className={styles.date}>{article.date}</span>
