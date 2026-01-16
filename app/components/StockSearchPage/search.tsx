@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from './searchPage.module.css'
+import { motion } from 'framer-motion';
 
 export default function search() {
     const texts = [
@@ -12,6 +13,7 @@ export default function search() {
         "In-depth market and financial reports."
     ]
 
+  
     const stocksData = [
         {
             id: 1,
@@ -168,170 +170,388 @@ export default function search() {
     return (
         <>
 
-            <div className={styles.parent}>
+            <motion.div className={styles.parent}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}>
                 <div className={styles.div1}>
-                    <video className={styles.bgVideo} autoPlay muted loop>
+                    <motion.video
+                        className={styles.bgVideo}
+                        autoPlay
+                        muted
+                        loop
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
+                    >
                         <source src="/media/BGvIDEO.mp4" type="video/mp4" />
-                    </video>
+                    </motion.video>
+
                     <div className={styles.contentOverlay}>
-                        <h1>Makes your searching easy</h1>
-                        <input type="text" placeholder='Search stocks...' className={styles.searchInput} />
+                        <motion.h1
+                            initial={{ y: 30, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.3, duration: 0.6 }}
+                        >
+                            Makes your searching easy
+                        </motion.h1>
+
+                        <motion.input
+                            type="text"
+                            placeholder="Search stocks..."
+                            className={styles.searchInput}
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.6 }}
+                        />
                     </div>
                 </div>
-                <div className={styles.div2}>
-                    <video className={styles.div2Video} autoPlay muted loop>
+
+                <motion.div
+                    className={styles.div2}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    <motion.video
+                        className={styles.div2Video}
+                        autoPlay
+                        muted
+                        loop
+                        initial={{ scale: 0.8 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1 }}
+                    >
                         <source src="/media/character.mp4" type="video/mp4" />
-                    </video>
-                    <div className={styles.div2Content}>
+                    </motion.video>
+                    <motion.div
+                        className={styles.div2Content}
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.7, delay: 0.5 }}
+                    >
                         <h1>Stock Market News & Insights</h1>
-                        <h2>{text}|</h2>
-                    </div>
+                        <h2>
+                            {text}
+                            |
+                        </h2>
+                    </motion.div>
+                </motion.div>
+
+
+
+
+                
+                 <motion.div
+      className={styles.div3}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, staggerChildren: 0.2 }}
+    >
+      <motion.h2
+        className={styles.filterHeading}
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        Filter
+      </motion.h2>
+
+      <motion.div
+        className={styles.filterSection}
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <h3 className={styles.filterTitle}>Market Cap</h3>
+        <div className={styles.filterOptions}>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="marketCap"
+              value="Large"
+              onChange={(e) => setSelectedMarketCap(e.target.value)}
+              checked={selectedMarketCap === "Large"}
+            />
+            <span>Large</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="marketCap"
+              value="Mid"
+              onChange={(e) => setSelectedMarketCap(e.target.value)}
+              checked={selectedMarketCap === "Mid"}
+            />
+            <span>Mid</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="marketCap"
+              value="Small"
+              onChange={(e) => setSelectedMarketCap(e.target.value)}
+              checked={selectedMarketCap === "Small"}
+            />
+            <span>Small</span>
+          </label>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className={styles.filterSection}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <h3 className={styles.filterTitle}>Sector</h3>
+        <div className={styles.filterOptions}>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="sector"
+              value="Technology"
+              onChange={(e) => setSelectedSector(e.target.value)}
+              checked={selectedSector === "Technology"}
+            />
+            <span>Technology</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="sector"
+              value="Finance"
+              onChange={(e) => setSelectedSector(e.target.value)}
+              checked={selectedSector === "Finance"}
+            />
+            <span>Finance</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="sector"
+              value="Healthcare"
+              onChange={(e) => setSelectedSector(e.target.value)}
+              checked={selectedSector === "Healthcare"}
+            />
+            <span>Healthcare</span>
+          </label>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className={styles.filterSection}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <h3 className={styles.filterTitle}>Risk Level</h3>
+        <div className={styles.filterOptions}>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="riskLevel"
+              value="Low"
+              onChange={(e) => setSelectedRisk(e.target.value)}
+              checked={selectedRisk === "Low"}
+            />
+            <span>Low</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="riskLevel"
+              value="Medium"
+              onChange={(e) => setSelectedRisk(e.target.value)}
+              checked={selectedRisk === "Medium"}
+            />
+            <span>Medium</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="riskLevel"
+              value="High"
+              onChange={(e) => setSelectedRisk(e.target.value)}
+              checked={selectedRisk === "High"}
+            />
+            <span>High</span>
+          </label>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className={styles.filterSection}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <h3 className={styles.filterTitle}>By Trend</h3>
+        <div className={styles.filterOptions}>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="trend"
+              value="Bullish"
+              onChange={(e) => setSelectedTrend(e.target.value)}
+              checked={selectedTrend === "Bullish"}
+            />
+            <span>Bullish</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="trend"
+              value="Bearish"
+              onChange={(e) => setSelectedTrend(e.target.value)}
+              checked={selectedTrend === "Bearish"}
+            />
+            <span>Bearish</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="trend"
+              value="Breakout"
+              onChange={(e) => setSelectedTrend(e.target.value)}
+              checked={selectedTrend === "Breakout"}
+            />
+            <span>Breakout Stocks</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="trend"
+              value="Consolidation"
+              onChange={(e) => setSelectedTrend(e.target.value)}
+              checked={selectedTrend === "Consolidation"}
+            />
+            <span>Consolidation</span>
+          </label>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className={styles.filterSection}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <h3 className={styles.filterTitle}>By Stock Price</h3>
+        <div className={styles.filterOptions}>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="price"
+              value="Under $10"
+              onChange={(e) => setSelectedPrice(e.target.value)}
+              checked={selectedPrice === "Under $10"}
+            />
+            <span>Under $10</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="price"
+              value="$10 - $50"
+              onChange={(e) => setSelectedPrice(e.target.value)}
+              checked={selectedPrice === "$10 - $50"}
+            />
+            <span>$10 - $50</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="price"
+              value="$50 - $100"
+              onChange={(e) => setSelectedPrice(e.target.value)}
+              checked={selectedPrice === "$50 - $100"}
+            />
+            <span>$50 - $100</span>
+          </label>
+          <label className={styles.filterOption}>
+            <input
+              type="radio"
+              name="price"
+              value="Over $100"
+              onChange={(e) => setSelectedPrice(e.target.value)}
+              checked={selectedPrice === "Over $100"}
+            />
+            <span>Over $100</span>
+          </label>
+        </div>
+      </motion.div>
+    </motion.div>
+
+
+
+
+                   <div className={styles.div4}>
+      <div className={styles.stocksContainer}>
+        {filteredStocks.length > 0 ? (
+          <h2 className={styles.stocksTitle}>
+            Market Updates ({filteredStocks.length})
+          </h2>
+        ) : (
+          <div className={styles.noDataContainer}>
+            <h2 className={styles.stocksTitle}>No stocks match your filters</h2>
+            <img
+              src="/media/NO.jpg"
+              alt="No Data"
+              className={styles.noDataImage}
+            />
+          </div>
+        )}
+
+        <div className={styles.stocksGrid}>
+          {filteredStocks.map((stock) => (
+            <motion.div
+              key={stock.id}
+              className={styles.stockCard}
+              initial={{ opacity: 0, y: 20 }} // Initial animation state
+              animate={{ opacity: 1, y: 0 }} // Final animation state
+              transition={{ duration: 0.5, ease: "easeOut", delay: stock.id * 0.05 }} // Add slight delay for staggered animation
+              whileHover={{ scale: 1.05, boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)" }} // Scale effect on hover
+              whileTap={{ scale: 0.95 }} // Tap animation for mobile
+            >
+              <div className={styles.stockHeader}>
+                <img
+                  src={stock.image}
+                  alt={stock.symbol}
+                  className={styles.stockImage}
+                />
+                <div className={styles.stockInfo}>
+                  <div className={styles.symbolName}>
+                    <h3 className={styles.symbol}>{stock.symbol}</h3>
+                    <p className={styles.companyName}>{stock.name}</p>
+                  </div>
+                  <div
+                    className={`${styles.changeIndicator} ${
+                      stock.change >= 0 ? styles.up : styles.down
+                    }`}
+                  >
+                    <span className={styles.arrow}>
+                      {stock.change >= 0 ? "▲" : "▼"}
+                    </span>
+                    <span className={styles.changeValue}>
+                      {Math.abs(stock.change)}%
+                    </span>
+                  </div>
                 </div>
-                <div className={styles.div3}>
-                    <h2 className={styles.filterHeading}>Filter</h2>
-
-                    <div className={styles.filterSection}>
-                        <h3 className={styles.filterTitle}>Market Cap</h3>
-                        <div className={styles.filterOptions}>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="marketCap" value="Large" onChange={(e) => setSelectedMarketCap(e.target.value)} checked={selectedMarketCap === "Large"} />
-                                <span>Large</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="marketCap" value="Mid" onChange={(e) => setSelectedMarketCap(e.target.value)} checked={selectedMarketCap === "Mid"} />
-                                <span>Mid</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="marketCap" value="Small" onChange={(e) => setSelectedMarketCap(e.target.value)} checked={selectedMarketCap === "Small"} />
-                                <span>Small</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className={styles.filterSection}>
-                        <h3 className={styles.filterTitle}>Sector</h3>
-                        <div className={styles.filterOptions}>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="sector" value="Technology" onChange={(e) => setSelectedSector(e.target.value)} checked={selectedSector === "Technology"} />
-                                <span>Technology</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="sector" value="Finance" onChange={(e) => setSelectedSector(e.target.value)} checked={selectedSector === "Finance"} />
-                                <span>Finance</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="sector" value="Healthcare" onChange={(e) => setSelectedSector(e.target.value)} checked={selectedSector === "Healthcare"} />
-                                <span>Healthcare</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className={styles.filterSection}>
-                        <h3 className={styles.filterTitle}>Risk Level</h3>
-                        <div className={styles.filterOptions}>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="riskLevel" value="Low" onChange={(e) => setSelectedRisk(e.target.value)} checked={selectedRisk === "Low"} />
-                                <span>Low</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="riskLevel" value="Medium" onChange={(e) => setSelectedRisk(e.target.value)} checked={selectedRisk === "Medium"} />
-                                <span>Medium</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="riskLevel" value="High" onChange={(e) => setSelectedRisk(e.target.value)} checked={selectedRisk === "High"} />
-                                <span>High</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className={styles.filterSection}>
-                        <h3 className={styles.filterTitle}>By Trend</h3>
-                        <div className={styles.filterOptions}>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="trend" value="Bullish" onChange={(e) => setSelectedTrend(e.target.value)} checked={selectedTrend === "Bullish"} />
-                                <span>Bullish</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="trend" value="Bearish" onChange={(e) => setSelectedTrend(e.target.value)} checked={selectedTrend === "Bearish"} />
-                                <span>Bearish</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="trend" value="Breakout" onChange={(e) => setSelectedTrend(e.target.value)} checked={selectedTrend === "Breakout"} />
-                                <span>Breakout Stocks</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="trend" value="Consolidation" onChange={(e) => setSelectedTrend(e.target.value)} checked={selectedTrend === "Consolidation"} />
-                                <span>Consolidation</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className={styles.filterSection}>
-                        <h3 className={styles.filterTitle}>By Stock Price</h3>
-                        <div className={styles.filterOptions}>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="price" value="Under $10" onChange={(e) => setSelectedPrice(e.target.value)} checked={selectedPrice === "Under $10"} />
-                                <span>Under $10</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="price" value="$10 - $50" onChange={(e) => setSelectedPrice(e.target.value)} checked={selectedPrice === "$10 - $50"} />
-                                <span>$10 - $50</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="price" value="$50 - $100" onChange={(e) => setSelectedPrice(e.target.value)} checked={selectedPrice === "$50 - $100"} />
-                                <span>$50 - $100</span>
-                            </label>
-                            <label className={styles.filterOption}>
-                                <input type="radio" name="price" value="Over $100" onChange={(e) => setSelectedPrice(e.target.value)} checked={selectedPrice === "Over $100"} />
-                                <span>Over $100</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.div4}>
-                    <div className={styles.stocksContainer}>
-                        {filteredStocks.length > 0 ? (
-                            <h2 className={styles.stocksTitle}>
-                                Market Updates ({filteredStocks.length})
-                            </h2>
-                        ) : (
-                            <div className={styles.noDataContainer}>
-                                <h2 className={styles.stocksTitle}>No stocks match your filters</h2>
-                                <img
-                                    src="/media/NO.jpg"
-                                    alt="No Data"
-                                    className={styles.noDataImage}
-                                />
-                            </div>
-                        )}
-
-                        <div className={styles.stocksGrid}>
-                            {filteredStocks.map((stock) => (
-                                <div key={stock.id} className={styles.stockCard}>
-                                    <div className={styles.stockHeader}>
-                                        <img src={stock.image} alt={stock.symbol} className={styles.stockImage} />
-                                        <div className={styles.stockInfo}>
-                                            <div className={styles.symbolName}>
-                                                <h3 className={styles.symbol}>{stock.symbol}</h3>
-                                                <p className={styles.companyName}>{stock.name}</p>
-                                            </div>
-                                            <div className={`${styles.changeIndicator} ${stock.change >= 0 ? styles.up : styles.down}`}>
-                                                <span className={styles.arrow}>{stock.change >= 0 ? "▲" : "▼"}</span>
-                                                <span className={styles.changeValue}>{Math.abs(stock.change)}%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p className={styles.stockDescription}>{stock.description}</p>
-                                    <div className={styles.stockFooter}>
-                                        <span className={styles.price}>${stock.price.toFixed(2)}</span>
-                                        <span className={styles.riskBadge}>{stock.risk} Risk</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
+              </div>
+              <p className={styles.stockDescription}>{stock.description}</p>
+              <div className={styles.stockFooter}>
+                <span className={styles.price}>
+                  ${stock.price.toFixed(2)}
+                </span>
+                <span className={styles.riskBadge}>{stock.risk} Risk</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+            </motion.div>
 
         </>
     )

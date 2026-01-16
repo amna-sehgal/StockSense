@@ -2,7 +2,7 @@
 .parent {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     gap: 0px;
     padding: 20px;
 }
