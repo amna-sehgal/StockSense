@@ -20,7 +20,11 @@
     "react": "19.2.3",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "19.2.3",
+<<<<<<< HEAD
+    "recharts": "^3.6.0"
+=======
     "three": "^0.182.0"
+>>>>>>> 5ba668f38bcd76749fa3d4b24de73f34bd9b0fcb
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
