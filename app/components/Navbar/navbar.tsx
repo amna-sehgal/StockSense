@@ -12,7 +12,7 @@ export default function Navbar() {
     { name: 'Stock Search', href: '/search' },
     { name: 'Sentiment Dashboard', href: '/dashboard' },
     { name: 'News + Social Feed', href: '/feed' },
-    { name: 'Insights Summary', href: '/insights' },
+    { name: 'Insights Summary', href: '/insight' },
   ];
 
   return (

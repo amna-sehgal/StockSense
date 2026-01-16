@@ -7,6 +7,7 @@ import HowItWorks from './components/LandingPage/HowItWorks'
 import Features from './components/LandingPage/features'
 import Value from './components/LandingPage/Value'
 import FinalCTA from './components/LandingPage/FinalCTA'
+import InsightsSummary from './components/Insights/insight'
 
 export default function Home() {
   return (
@@ -23,3 +24,6 @@ export default function Home() {
     </>
   )
 }
+
+
+

@@ -1046,7 +1046,7 @@
   max-width: 460px;
 }
 
-/* RIGHT SIDE */
+
 .howRight {
   position: relative;
   padding-right: 2rem; 
@@ -1182,6 +1182,20 @@
 .iconBox svg {
   color: #0d7a4b;          
 }
+.globeWrapper {
+  position: absolute;
+  right: -120px;          
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 700px;
+  height: 700px;
+
+  pointer-events: none;
+}
+
+
+
 
 
 
