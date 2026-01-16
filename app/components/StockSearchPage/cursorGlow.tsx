@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import styles from './search.module.css';
+import styles from './searchPage.module.css';
 
 type Point = { x: number; y: number };
 
