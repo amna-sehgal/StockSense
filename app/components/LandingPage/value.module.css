@@ -24,7 +24,6 @@
   height: 100%;
   pointer-events: none;
   z-index: 10;
-  /* Adds a neon glow to the master border line */
   filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4));
 }
 
@@ -45,7 +44,6 @@
   color: #ffffff;
   font-weight: 700;
   letter-spacing: -0.02em;
-  /* Subtle text glow */
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
@@ -62,9 +60,9 @@
   border-radius: 12px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.02);
-  /* Smooth transition for the hover glow */
+
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(16, 185, 129, 0); /* Invisible border for layout stability */
+  border: 1px solid rgba(16, 185, 129, 0); 
 }
 
 
@@ -102,7 +100,7 @@
   color: #ffffff;
 }
 
-/* Icon Glow */
+
 .valueIcon {
   color: #10b981;
   display: flex;

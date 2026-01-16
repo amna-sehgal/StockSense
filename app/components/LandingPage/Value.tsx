@@ -17,10 +17,7 @@ const values: ValueItem[] = [
   { icon: <Shield size={22} />, text: 'Reduce emotional bias in investing' },
 ];
 
-/**
- * Adding 'as const' ensures TypeScript treats this as a fixed tuple 
- * of 4 numbers, which matches Framer Motion's Easing type.
- */
+
 const cubicBezier = [0.4, 0, 0.2, 1] as const;
 
 const drawVariants: Variants = {
@@ -47,7 +44,7 @@ export default function Value() {
     <section className={styles.valueSection}>
       <div className={styles.masterWrapper}>
         
-        {/* 1. MASTER OUTER DRAWING */}
+        {}
         <svg className={styles.masterOutline} viewBox="0 0 100 100" preserveAspectRatio="none">
           <motion.rect
             x="0.5" y="0.5" width="99" height="99" rx="2"
@@ -75,7 +72,7 @@ export default function Value() {
             {values.map((v, i) => (
               <div key={i} className={styles.itemContainer}>
                 
-                {/* 2. SUB-CONTAINER DRAWING */}
+                {}
                 <svg className={styles.itemOutline} viewBox="0 0 100 100" preserveAspectRatio="none">
                   <motion.rect
                     x="1" y="1" width="98" height="98" rx="6"
@@ -90,7 +87,7 @@ export default function Value() {
                   />
                 </svg>
 
-                {/* 3. INTERNAL CONTENT */}
+                {}
                 <motion.div 
                   className={styles.valueItem}
                   initial={{ opacity: 0, filter: 'blur(4px)' }}

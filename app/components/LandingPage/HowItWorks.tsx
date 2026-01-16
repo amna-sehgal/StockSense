@@ -58,7 +58,7 @@ export default function HowItWorks() {
 
   return (
     <section className={styles.howWrapper}>
-      {/* LEFT SIDE */}
+      {}
       <div className={styles.howLeft}>
         <h2 className={styles.howHeading}>How It Works</h2>
         <p className={styles.howSub}>
@@ -66,7 +66,7 @@ export default function HowItWorks() {
         </p>
       </div>
 
-      {/* RIGHT SIDE */}
+      {}
       <div className={styles.slider}>
         {cards.map((card, i) => {
           const position =
@@ -79,7 +79,7 @@ export default function HowItWorks() {
           return (
             <motion.div
               key={i}
-              className={styles.howCard} // 🔥 your existing glowing card
+              className={styles.howCard} 
               animate={position}
               variants={cardPositions}
               transition={{

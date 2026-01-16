@@ -1,18 +1,6 @@
 'use client';
-<<<<<<< HEAD
 import { motion, Variants } from 'framer-motion';
 import { LineChart, Radar, Sparkles, Brain } from 'lucide-react';
-=======
-
-import { motion } from 'framer-motion';
-import {
-  LineChart,
-  Radar,
-  Sparkles,
-  Brain
-} from 'lucide-react';
-
->>>>>>> 9e7a2c6308bc9cd5d2e1e6f18c08c0b406ba8808
 import styles from './landing.module.css';
 
 const features = [
@@ -37,7 +25,7 @@ const cardVariants: Variants = {
 export default function Features() {
   return (
     <section className={styles.featuresWrapper}>
-      {/* Heading */}
+      {}
       <motion.h2
         className={styles.featuresHeading}
         initial={{ opacity: 0, y: 40 }}
@@ -49,7 +37,7 @@ export default function Features() {
       </motion.h2>
 
       <div className={styles.timelineWrapper}>
-        {/* Main vertical rod */}
+        {}
         <motion.div
           className={styles.timelineLine}
           initial={{ height: 0 }}
@@ -58,7 +46,7 @@ export default function Features() {
           transition={{ duration: 1, ease: 'easeInOut' }}
         />
 
-        {/* Cards */}
+        {}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -76,7 +64,7 @@ export default function Features() {
                 className={`${styles.featureCard} ${styles[side]}`}
                 variants={cardVariants}
               >
-                {/* Sub-rod */}
+                {}
                 <motion.div
                   className={styles.subRod}
                   initial={{ width: 0 }}
@@ -85,7 +73,7 @@ export default function Features() {
                   transition={{ duration: 0.5, delay: i * 0.3 }}
                 />
 
-                {/* Card content */}
+                {}
                 <motion.div
                   className={styles.cardContent}
                   initial={{ opacity: 0, y: 20 }}

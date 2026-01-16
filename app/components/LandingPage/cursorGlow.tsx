@@ -17,7 +17,7 @@ export default function CursorTrail() {
     const move = (e: MouseEvent) => {
       const { clientX: x, clientY: y } = e;
       
-      // Determine direction: If Y is smaller, cursor moved UP (Bullish)
+      
       const type = y < lastY.current ? 'bull' : 'bear';
       lastY.current = y;
 
@@ -42,13 +42,13 @@ export default function CursorTrail() {
           style={{
             left: point.x,
             top: point.y,
-            // Creates a trailing fade effect
+            
             opacity: i / points.length,
-            // Shrinks the older candles
+            
             transform: `scale(${0.4 + (i / points.length) * 0.6})`,
           }}
         >
-          {/* Vertical wick line */}
+          {}
           <div className={styles.wick} />
         </div>
       ))}
