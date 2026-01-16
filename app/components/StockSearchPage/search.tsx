@@ -508,11 +508,11 @@ export default function search() {
             <motion.div
               key={stock.id}
               className={styles.stockCard}
-              initial={{ opacity: 0, y: 20 }} // Initial animation state
-              animate={{ opacity: 1, y: 0 }} // Final animation state
-              transition={{ duration: 0.5, ease: "easeOut", delay: stock.id * 0.05 }} // Add slight delay for staggered animation
-              whileHover={{ scale: 1.05, boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)" }} // Scale effect on hover
-              whileTap={{ scale: 0.95 }} // Tap animation for mobile
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.5, ease: "easeOut", delay: stock.id * 0.05 }} 
+              whileHover={{ scale: 1.05, boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)" }} 
+              whileTap={{ scale: 0.95 }} 
             >
               <div className={styles.stockHeader}>
                 <img

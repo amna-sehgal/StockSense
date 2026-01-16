@@ -1,4 +1,5 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import {
   LineChart,
@@ -6,6 +7,7 @@ import {
   Sparkles,
   Brain
 } from 'lucide-react';
+
 import styles from './landing.module.css';
 
 const features = [

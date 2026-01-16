@@ -2,10 +2,11 @@
 import { motion } from 'framer-motion';
 import styles from './landing.module.css';
 
+
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      {/* Full left-side background video */}
+     
       <div className={styles.videoBackground}>
         <video
           className={styles.backgroundVideo}
@@ -21,15 +22,13 @@ export default function Hero() {
         <div className={styles.videoOverlay} />
       </div>
 
-      {/* Centered Text Overlay */}
-      {/* Centered Text Overlay */}
       <motion.div
         className={styles.centeredText}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        {/* Heading - NO blur */}
+       
         <motion.h1
           className={styles.heading}
           initial={{ scale: 0.9, opacity: 0 }}
@@ -39,7 +38,7 @@ export default function Hero() {
           Understand the Market in Seconds, Not Hours.
         </motion.h1>
 
-        {/* BLUR DIV - wraps tagline + subheading */}
+        
         <div className={styles.blurContainer}>
           <motion.p
             className={styles.tagline}
@@ -64,7 +63,7 @@ export default function Hero() {
       </motion.div>
 
 
-      {/* Right side stays black */}
+
       <div className={styles.rightSide} />
     </section>
   );

@@ -1,4 +1,4 @@
-/* ================= NAVBAR ================= */
+
 
 .navbar {
   position: sticky;
@@ -22,7 +22,7 @@
     inset 0 0 20px rgba(16, 185, 129, 0.15);
 }
 
-/* 30% LEFT */
+
 .navLeft {
   flex: 0 0 30%;
   padding-left: 2rem;
@@ -38,7 +38,7 @@
   text-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
 }
 
-/* 70% RIGHT */
+
 .navRight {
   flex: 0 0 70%;
   display: flex;
@@ -57,7 +57,6 @@
   transition: color 0.3s ease;
 }
 
-/* underline glow */
 .navLink::after {
   content: '';
   position: absolute;

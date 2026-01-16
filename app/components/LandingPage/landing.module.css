@@ -4,9 +4,10 @@
   min-height: 100vh;
   max-width: 1400px;
   margin: 0 auto;
-  background: #000000; /* Pure black background */
+  background: #000000; 
   overflow: hidden;
   position: relative;
+
 }
 
 
@@ -49,7 +50,6 @@
   text-shadow: 0 1px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Background video section */
 .videoBackground {
   position: absolute;
   inset: 0;
@@ -68,10 +68,10 @@
 .videoOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
+  background: rgba(0, 0, 0, 0.6); 
 }
 
-/* Centered text */
+
 .centeredText {
   position: absolute;
   left: 25%;
@@ -84,7 +84,7 @@
   text-align: center;
   padding: 3rem 5%;
   z-index: 2;
-  width: 50%; /* Take full left half */
+  width: 50%; 
 }
 .blurContainer {
   backdrop-filter: blur(10px);
@@ -101,25 +101,25 @@
 }
 
 .heading {
-  font-size: clamp(2rem, 4vw, 3.5rem);  /* Smaller: was clamp(2.5rem, 6vw, 5rem) */
-  margin-bottom: 1rem;                  /* Tighter spacing */
+  font-size: clamp(2rem, 4vw, 3.5rem);  
+  margin-bottom: 1rem;                 
 }
 
 .tagline {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);  /* Smaller: was clamp(1.4rem, 3.5vw, 2.2rem) */
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem); 
   margin-bottom: 1rem;
 }
 
 .subheading {
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);  /* Smaller: was clamp(1rem, 2vw, 1.2rem) */
-  max-width: 24rem;                          /* Narrower for balance */
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);  
+  max-width: 24rem;                         
   line-height: 1.6;
 }
 
-/* Mobile adjustments */
+
 @media (max-width: 768px) {
   .video {
-    max-width: 350px;  /* Larger mobile too */
+    max-width: 350px; 
     height: 350px;
   }
   
@@ -168,7 +168,7 @@
   border: 1px solid rgba(16, 185, 129, 0.35);
   color: #e5e7eb;
 
-  /* GLOW */
+  
   box-shadow:
     0 0 25px rgba(16, 185, 129, 0.25),
     inset 0 0 20px rgba(16, 185, 129, 0.15);
@@ -176,7 +176,7 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Hover = premium lift + stronger glow */
+
 .stepCard:hover {
   transform: translateY(-10px) scale(1.03);
   box-shadow:
@@ -239,7 +239,7 @@
   transition: all 0.4s ease;
 }
 
-/* Glow ring effect */
+
 .featureCard::before {
   content: '';
   position: absolute;
@@ -403,7 +403,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
 
-  /* CORE NEON COLOR */
+  
   background: radial-gradient(
     circle,
     rgba(16,255,170,1),
@@ -412,7 +412,7 @@
     transparent 70%
   );
 
-  /* MULTI-LAYER GLOW */
+  
   box-shadow:
     0 0 12px rgba(16,255,170,0.9),
     0 0 28px rgba(16,255,170,0.8),

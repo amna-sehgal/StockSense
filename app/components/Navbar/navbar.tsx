@@ -18,12 +18,12 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      {/* LEFT – BRAND */}
+  
       <div className={styles.navLeft}>
         <span className={styles.brand}>StockSense</span>
       </div>
 
-      {/* RIGHT – LINKS */}
+      
       <div className={styles.navRight}>
         {links.map((link, i) => (
           <a key={i} href="#" className={styles.navLink}>
