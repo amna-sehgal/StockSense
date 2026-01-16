@@ -1,4 +1,8 @@
 # StockSense
+<p align="center">
+  <img src="logo.jpeg" alt="StockSense header" width="800"/>
+</p>
+
 
 **AI-Powered Stock Market Sentiment Analysis Platform**
 
@@ -46,34 +50,14 @@ StockSense aggregates financial news and social media data, applies finance-spec
 
 ### Frontend
 - Next.js  
-- Tailwind CSS  
-- Chart.js / Recharts  
+- Typescript
 
 ### Backend
-- Node.js  
-- Express  
-- Python microservices  
+- Python libraries-streamlit transformers,pandas,torch,requests, yfinance,praw,numpy.
 
-### AI and NLP
-- FinBERT for financial sentiment analysis  
-- NER models for relevance filtering  
-- Aggregation logic for weighted sentiment scoring  
 
-### Data Sources
-- News APIs  
-- Reddit API and X API  
-- Yahoo Finance or Alpha Vantage  
-
-### Database
-- MongoDB  
-- Redis (optional for caching)  
-
-### Deployment
-- Vercel for frontend  
-- Cloud hosting for backend and AI services  
-
----
-
+### API
+-Gemini API
 ## 🧠 System Flow
 
 1. User searches for a stock ticker  
@@ -82,7 +66,7 @@ StockSense aggregates financial news and social media data, applies finance-spec
 4. Sentiment scores are aggregated and classified  
 5. Dashboard displays sentiment, trends, and price correlation  
 
----
+-
 
 ## ⚠️ Disclaimer
 
