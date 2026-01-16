@@ -29,7 +29,7 @@ export default function SearchBar() {
         stock.symbol.toLowerCase().includes(searchQuery.toLowerCase()) ||
         stock.name.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    : stocks.slice(0, 4); // Show first 4 stocks by default
+    : stocks.slice(0, 4); 
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -44,7 +44,7 @@ export default function SearchBar() {
   };
 
   const handleBlur = () => {
-    // Delay closing to allow click on suggestions to register
+    
     setTimeout(() => {
       setShowSuggestions(false);
     }, 200);
@@ -208,7 +208,7 @@ export default function SearchBar() {
             )}
           </div>
 
-          {/* Suggestions Dropdown */}
+     
           <motion.div
             className={styles.suggestionsContainer}
             initial={{ opacity: 0, y: -10 }}
@@ -251,12 +251,12 @@ export default function SearchBar() {
 
       
       <motion.h2
-        className={styles.newsTitle}
+        className={`${styles.newsTitle} ${styles.hasImage}`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        📰 Stock Market News & Insights
+          <span className={styles.titleText}>Stock Market News & Insights</span>
       </motion.h2>
 
      

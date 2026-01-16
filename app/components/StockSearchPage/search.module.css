@@ -7,7 +7,6 @@
   position: relative;
 }
 
-/* Search Section */
 .searchContainer {
   margin-bottom: 60px;
   margin-top: 40px;
@@ -76,7 +75,7 @@
   transform: rotate(90deg);
 }
 
-/* Suggestions Dropdown */
+
 .suggestionsContainer {
   position: absolute;
   top: 100%;
@@ -180,23 +179,42 @@
   font-size: 12px;
 }
 
-/* Scrollbar styling */
 .suggestionsContainer {
   scrollbar-color: rgba(16, 185, 129, 0.4) rgba(16, 185, 129, 0.1);
   scrollbar-width: thin;
 }
 
-/* News Section */
 .newsTitle {
   font-size: 2.5rem;
-  background: linear-gradient(120deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   text-align: center;
   margin-bottom: 50px;
   font-weight: 700;
   text-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center; /* vertically center image + text */
+  justify-content: center; /* horizontally center container */
+  gap: 16px; /* space between image and text */
+  flex-wrap: wrap; /* allow wrapping on very small screens */
+  color: #fff; /* ensure default text is visible */
+  position: relative; /* needed for the full-width pseudo background */
+}
+
+/* full-width background bar behind the headline (limited to the headline row) */
+.newsTitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 64px; /* default height for the background bar */
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url('/icons/stock-3d.svg');
+  background-repeat: no-repeat;
+  background-size: cover; /* fill full width */
+  background-position: center center;
+  opacity: 0.08;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .newsGrid {
@@ -478,7 +496,7 @@
   }
 }
 
-/* Cursor Trail Effect */
+
 .cursorTrail {
   position: fixed;
   pointer-events: none;
@@ -500,7 +518,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
 
-  /* CORE NEON COLOR */
+  
   background: radial-gradient(
     circle,
     rgba(16,255,170,1),
@@ -509,7 +527,7 @@
     transparent 70%
   );
 
-  /* MULTI-LAYER GLOW */
+
   box-shadow:
     0 0 12px rgba(16,255,170,0.9),
     0 0 28px rgba(16,255,170,0.8),
@@ -517,3 +535,80 @@
 
   filter: blur(2px);
 }
+
+
+
+/* subtle interaction for images placed next to the title */
+.newsTitle .img {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  
+}
+
+.newsTitle .titleText {
+  position: relative;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  z-index: 1;
+  font-weight: 800;
+  color: #fff; /* ensure text is fully visible */
+  text-shadow: 0 2px 8px rgba(2,54,37,0.18);
+}
+
+.newsTitle .titleText::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://img.freepik.com/premium-photo/stock-market-growth-chart_1331161-20298.jpg?semt=ais_hybrid&w=740&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.5; /* subtle background behind the text */
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px rgba(2, 54, 37, 0.12));
+ 
+ 
+  
+}
+
+
+@media (max-width: 768px) {
+  .newsTitle .titleText {
+    padding: 4px 8px;
+    text-shadow: 0 1px 6px rgba(2,54,37,0.22);
+  }
+  .newsTitle::before {
+    height: 48px;
+    opacity: 0.09;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsTitle {
+    gap: 10px;
+  }
+
+  .img {
+    width: 56px;
+    height: 56px;
+    max-width: 12vw;
+    max-height: 12vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsTitle {
+    gap: 8px;
+    font-size: 1.5rem; /* keep text readable on very small screens */
+  }
+
+  .img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+  }
+}
+
