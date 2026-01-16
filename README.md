@@ -1,4 +1,8 @@
 # StockSense
+<p align="center">
+  <img src="logo.jpeg" alt="StockSense header" width="800"/>
+</p>
+
 
 **AI-Powered Stock Market Sentiment Analysis Platform**
 
