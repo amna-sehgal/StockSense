@@ -402,8 +402,6 @@
   z-index: 5;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-
-  
   background: radial-gradient(
     circle,
     rgba(16,255,170,1),
@@ -411,13 +409,10 @@
     rgba(16,255,170,0.6),
     transparent 70%
   );
-
-  
   box-shadow:
     0 0 12px rgba(16,255,170,0.9),
     0 0 28px rgba(16,255,170,0.8),
     0 0 48px rgba(16,255,170,0.6);
-
   filter: blur(2px);
 }
 .howItWorks {

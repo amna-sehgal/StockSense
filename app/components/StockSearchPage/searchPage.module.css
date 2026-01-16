@@ -2,7 +2,7 @@
 .parent {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(7,1fr);
     gap: 0px;
     padding: 20px;
 }
@@ -32,12 +32,14 @@
     
 .div1 {
     grid-column: span 8 / span 8;
-    grid-row: span 1 / span 1;
+    grid-row: span 1/ span 1;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(34, 197, 94, 0.2);
     aspect-ratio: 16 / 3;
+    padding: 10vw;
+    
 }
 
 @media (max-width: 1024px) {
@@ -67,7 +69,7 @@
 .div2 {
     grid-column: span 8 / span 8;
     grid-row: span 2 / span 2;
-    grid-row-start: 2;
+    grid-row-start:2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -350,8 +352,8 @@
 .div4 {
     grid-column: span 6 / span 6;
     grid-row: span 5 / span 5;
-    grid-column-start: 3;
-    grid-row-start: 4;
+    grid-column-start: 4;
+    grid-row-start: 5;
     display: flex;
     flex-direction: column;
     padding: 16px;
@@ -661,3 +663,24 @@
 .searchInput::placeholder {
     color: #9ca3af;
 }        
+.cursorTrail {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 5;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(16,255,170,1),
+    rgba(16,255,170,0.9),
+    rgba(16,255,170,0.6),
+    transparent 70%
+  );
+  box-shadow:
+    0 0 12px rgba(16,255,170,0.9),
+    0 0 28px rgba(16,255,170,0.8),
+    0 0 48px rgba(16,255,170,0.6);
+  filter: blur(2px);
+}
