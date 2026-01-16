@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './searchPage.module.css'
 import { motion } from 'framer-motion';
 
 export default function search() {
+    const router = useRouter();
     const texts = [
         "Analyzing market trends for opportunities.",
         "Real-time stock prices and news.",
@@ -196,14 +198,27 @@ export default function search() {
                             Makes your searching easy
                         </motion.h1>
 
-                        <motion.input
-                            type="text"
-                            placeholder="Search stocks..."
-                            className={styles.searchInput}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.5, duration: 0.6 }}
-                        />
+                        <div className={styles.searchContainer}>
+                            <motion.input
+                                type="text"
+                                placeholder="Search stocks..."
+                                className={styles.searchInput}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.5, duration: 0.6 }}
+                            />
+                            <motion.button
+                                className={styles.enterButton}
+                                onClick={() => router.push('/sentiments')}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.7, duration: 0.6 }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                Enter
+                            </motion.button>
+                        </div>
                     </div>
                 </div>
 

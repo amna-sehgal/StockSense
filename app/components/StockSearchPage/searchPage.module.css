@@ -3,21 +3,23 @@
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    gap: 0px;
+    gap: 10px;
     padding: 20px;
+    min-height: 100vh;
 }
 
 @media (max-width: 1024px) {
     .parent {
         grid-template-columns: repeat(6, 1fr);
-        gap: 3px;
+        gap: 8px;
+        padding: 15px;
     }
 }
 
 @media (max-width: 768px) {
     .parent {
         grid-template-columns: repeat(4, 1fr);
-        gap: 3px;
+        gap: 8px;
         padding: 15px;
     }
 }
@@ -25,7 +27,7 @@
 @media (max-width: 480px) {
     .parent {
         grid-template-columns: repeat(2, 1fr);
-        gap: 3px;
+        gap: 8px;
         padding: 10px;
     }
 }
@@ -71,8 +73,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 8px;
+    gap: 16px;
+    padding: 16px;
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(19, 211, 89, 0.683);
@@ -120,7 +122,7 @@
         grid-column: span 6 / span 6;
         grid-row: span 4 / span 4;
         gap: 12px;
-        padding: 4px;
+        padding: 12px;
     }
     
     .div2Video {
@@ -132,11 +134,11 @@
     }
     
     .div2Content h1 {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
     
     .div2Content h2 {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -145,8 +147,8 @@
         grid-column: span 4 / span 4;
         grid-row: span 3 / span 3;
         flex-direction: column;
-        gap: 8px;
-        padding: 4px;
+        gap: 12px;
+        padding: 12px;
     }
     
     .div2Video {
@@ -159,11 +161,11 @@
     }
     
     .div2Content h1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
     
     .div2Content h2 {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
 
@@ -172,8 +174,8 @@
         grid-column: span 2 / span 2;
         grid-row: span 3 / span 3;
         flex-direction: column;
-        gap: 4px;
-        padding: 2px;
+        gap: 8px;
+        padding: 8px;
     }
     
     .div2Video {
@@ -182,11 +184,11 @@
     }
     
     .div2Content h1 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
     .div2Content h2 {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -196,29 +198,30 @@
     grid-row-start: 4;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 16px;
+    gap: 16px;
+    padding: 20px;
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
-    border-radius: 8px;
+    border-radius: 12px;
     border-left: 3px solid #22c55e;
-    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.15);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
     overflow-y: auto;
+    max-height: 100%;
 }
 
 .filterHeading {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #ffffff;
-    margin: 0 0 8px 0;
-    padding-bottom: 8px;
+    margin: 0 0 12px 0;
+    padding-bottom: 12px;
     border-bottom: 2px solid #22c55e;
 }
 
 .filterSection {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding-bottom: 12px;
+    gap: 10px;
+    padding-bottom: 16px;
     border-bottom: 1px solid rgba(34, 197, 94, 0.2);
 }
 
@@ -228,7 +231,7 @@
 }
 
 .filterTitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
     margin: 0;
@@ -239,17 +242,18 @@
 .filterOptions {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .filterOption {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #ffffff;
     transition: all 0.2s ease;
+    padding: 4px 0;
 }
 
 .filterOption:hover {
@@ -265,6 +269,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
     background-color: white;
+    flex-shrink: 0;
 }
 
 .filterOption input[type="radio"]:hover {
@@ -274,7 +279,7 @@
 .filterOption input[type="radio"]:checked {
     border-color: #22c55e;
     background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    box-shadow: inset 0 0 0 2px white;
+    box-shadow: inset 0 0 0 3px white;
 }
 
 .filterOption span {
@@ -285,7 +290,47 @@
     .div3 {
         grid-column: span 2 / span 2;
         grid-row: span 6 / span 6;
-        gap: 10px;
+        gap: 12px;
+        padding: 16px;
+    }
+    
+    .filterHeading {
+        font-size: 1.3rem;
+    }
+    
+    .filterTitle {
+        font-size: 0.9rem;
+    }
+    
+    .filterOption {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .div3 {
+        grid-column: span 4 / span 4;
+        grid-row: span 5 / span 5;
+        gap: 12px;
+        padding: 16px;
+    }
+    
+    .filterSection {
+        gap: 8px;
+        padding-bottom: 12px;
+    }
+    
+    .filterOption input[type="radio"] {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .div3 {
+        grid-column: span 2 / span 2;
+        grid-row: span 4 / span 4;
+        gap: 8px;
         padding: 12px;
     }
     
@@ -299,46 +344,6 @@
     
     .filterOption {
         font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .div3 {
-        grid-column: span 4 / span 4;
-        grid-row: span 5 / span 5;
-        gap: 8px;
-        padding: 12px;
-    }
-    
-    .filterSection {
-        gap: 6px;
-        padding-bottom: 10px;
-    }
-    
-    .filterOption input[type="radio"] {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .div3 {
-        grid-column: span 2 / span 2;
-        grid-row: span 4 / span 4;
-        gap: 6px;
-        padding: 8px;
-    }
-    
-    .filterHeading {
-        font-size: 1rem;
-    }
-    
-    .filterTitle {
-        font-size: 0.8rem;
-    }
-    
-    .filterOption {
-        font-size: 0.8rem;
     }
     
     .filterOption input[type="radio"] {
@@ -354,65 +359,66 @@
     grid-row-start: 4;
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 20px;
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(34, 197, 94, 0.05) 100%);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow-y: auto;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    max-height: 100%;
 }
 
 .stocksContainer {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     height: 100%;
 }
 
 .stocksTitle {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #06a01a;
-    margin: 0 0 8px 0;
-    padding-bottom: 8px;
+    margin: 0 0 12px 0;
+    padding-bottom: 12px;
     border-bottom: 2px solid #3b82f6;
 }
 
 .stocksGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 16px;
     overflow-y: auto;
 }
 
 .stockCard {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 12px;
+    gap: 10px;
+    padding: 16px;
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid rgba(34, 197, 94, 0.2);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .stockCard:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+    box-shadow: 0 8px 16px rgba(34, 197, 94, 0.2);
     border-color: #22c55e;
 }
 
 .stockHeader {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 }
 
 .stockImage {
-    width: 48px;
-    height: 48px;
-    border-radius: 6px;
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
     object-fit: cover;
     border: 2px solid #e5e7eb;
 }
@@ -422,24 +428,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 }
 
 .symbolName {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
 }
 
 .symbol {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #1f2937;
     margin: 0;
 }
 
 .companyName {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: #6b7280;
     margin: 0;
 }
@@ -448,9 +454,9 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
@@ -465,7 +471,7 @@
 }
 
 .arrow {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
 .changeValue {
@@ -473,10 +479,10 @@
 }
 
 .stockDescription {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #4b5563;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -487,23 +493,37 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 8px;
+    padding-top: 10px;
     border-top: 1px solid #e5e7eb;
 }
 
 .price {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #22c55e;
 }
 
 .riskBadge {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    padding: 2px 6px;
-    border-radius: 3px;
+    padding: 4px 8px;
+    border-radius: 4px;
     background-color: rgba(59, 130, 246, 0.2);
     color: #1e40af;
+}
+
+.noDataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.noDataImage {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
 }
 
 @media (max-width: 1024px) {
@@ -511,6 +531,7 @@
         grid-column: span 4 / span 4;
         grid-row: span 6 / span 6;
         grid-column-start: 3;
+        padding: 16px;
     }
     
     .stocksGrid {
@@ -524,24 +545,24 @@
         grid-row: span 5 / span 5;
         grid-column-start: 1;
         grid-row-start: 11;
-        padding: 12px;
+        padding: 16px;
     }
     
     .stockCard {
-        padding: 10px;
+        padding: 12px;
     }
     
     .stockImage {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
     }
     
     .symbol {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     
     .stockDescription {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -550,25 +571,25 @@
         grid-column: span 2 / span 2;
         grid-row: span 4 / span 4;
         grid-column-start: 1;
-        padding: 8px;
+        padding: 12px;
     }
     
     .stocksTitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     
     .stocksGrid {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 12px;
     }
     
     .stockCard {
-        padding: 8px;
+        padding: 12px;
     }
     
     .stockImage {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -595,9 +616,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
     z-index: 1;
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .searchContainer {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 100%;
+        padding: 0 20px;
+    }
 }
 
 .contentOverlay h1 {
@@ -629,7 +668,7 @@
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.95);
     color: #1f2937;
-    width: 100%;
+    flex: 1;
     max-width: 500px;
     transition: all 0.3s ease;
     outline: none;
@@ -640,7 +679,8 @@
     .searchInput {
         padding: 12px 18px;
         font-size: 0.95rem;
-        max-width: 300px;
+        max-width: 100%;
+        width: 100%;
     }
 }
 
@@ -660,4 +700,67 @@
 
 .searchInput::placeholder {
     color: #9ca3af;
+}
+
+.enterButton {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6),
+                0 0 40px rgba(34, 197, 94, 0.4),
+                0 8px 24px rgba(34, 197, 94, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.6),
+                    0 0 40px rgba(34, 197, 94, 0.4),
+                    0 8px 24px rgba(34, 197, 94, 0.3);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(34, 197, 94, 0.8),
+                    0 0 60px rgba(34, 197, 94, 0.6),
+                    0 12px 36px rgba(34, 197, 94, 0.4);
+    }
+}
+
+.enterButton:hover {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.8),
+                0 0 60px rgba(34, 197, 94, 0.6),
+                0 12px 36px rgba(34, 197, 94, 0.5);
+    transform: translateY(-2px);
+}
+
+.enterButton:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .enterButton {
+        padding: 12px 32px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .enterButton {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 150px;
+    }
 }        
