@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StockSense
 
-## Getting Started
+**AI-Powered Stock Market Sentiment Analysis Platform**
 
-First, run the development server:
+StockSense helps retail investors understand market sentiment around any stock by analyzing financial news and social media using AI. It converts noisy, unstructured data into clear sentiment scores, trends, and insights to support faster, data-driven decisions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚩 Problem Statement
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Retail investors are overwhelmed by information.  
+Hundreds of news articles and thousands of social media posts make it difficult to quickly understand true market sentiment and its impact on stock prices.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 💡 Solution
 
-To learn more about Next.js, take a look at the following resources:
+StockSense aggregates financial news and social media data, applies finance-specific AI models to analyze sentiment, and presents a clear, visual dashboard showing sentiment trends and price correlation for any stock.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ Key Features
 
-## Deploy on Vercel
+- Stock search using ticker symbols  
+- Multi-source data aggregation from news and social platforms  
+- AI-based sentiment analysis using finance-specific models  
+- Sentiment score classification: Positive, Neutral, Negative  
+- Sentiment trend and stock price correlation charts  
+- News and social feed with individual sentiment scores  
+- AI-generated insights and key themes  
+- Retail investor friendly dashboard  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 Use Cases
+
+- Pre-investment sentiment check  
+- Understanding market reaction to news  
+- Short-term trading sentiment signals  
+- Comparing sentiment across stocks  
+- Learning how sentiment impacts stock prices  
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js  
+- Tailwind CSS  
+- Chart.js / Recharts  
+
+### Backend
+- Node.js  
+- Express  
+- Python microservices  
+
+### AI and NLP
+- FinBERT for financial sentiment analysis  
+- NER models for relevance filtering  
+- Aggregation logic for weighted sentiment scoring  
+
+### Data Sources
+- News APIs  
+- Reddit API and X API  
+- Yahoo Finance or Alpha Vantage  
+
+### Database
+- MongoDB  
+- Redis (optional for caching)  
+
+### Deployment
+- Vercel for frontend  
+- Cloud hosting for backend and AI services  
+
+---
+
+## 🧠 System Flow
+
+1. User searches for a stock ticker  
+2. StockSense fetches recent news, social posts, and price data  
+3. AI models filter and analyze sentiment  
+4. Sentiment scores are aggregated and classified  
+5. Dashboard displays sentiment, trends, and price correlation  
+
+---
+
+## ⚠️ Disclaimer
+
+StockSense provides sentiment analysis for informational purposes only.  
+It does not offer financial or investment advice.
+
+---
+
+## 🚀 Future Enhancements
+
+- Portfolio-level sentiment analysis  
+- Sector-wise sentiment comparison  
+- Real-time alerts for sentiment shifts  
+- API access for developers and fintech platforms  
+
+---
+
+## 🏁 Closing Note
+
+**StockSense brings clarity to stock market sentiment by turning market noise into actionable insight.**
