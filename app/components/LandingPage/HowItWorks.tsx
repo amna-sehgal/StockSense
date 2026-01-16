@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Search, BrainCircuit, BarChart3 } from 'lucide-react';
+
 import styles from './landing.module.css';
 const cardPositions = {
   center: {

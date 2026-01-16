@@ -1,6 +1,18 @@
 'use client';
+<<<<<<< HEAD
 import { motion, Variants } from 'framer-motion';
 import { LineChart, Radar, Sparkles, Brain } from 'lucide-react';
+=======
+
+import { motion } from 'framer-motion';
+import {
+  LineChart,
+  Radar,
+  Sparkles,
+  Brain
+} from 'lucide-react';
+
+>>>>>>> 9e7a2c6308bc9cd5d2e1e6f18c08c0b406ba8808
 import styles from './landing.module.css';
 
 const features = [
