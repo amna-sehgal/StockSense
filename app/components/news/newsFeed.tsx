@@ -39,7 +39,9 @@ interface ThemeStat {
 interface SentimentStat {
   name: string;
   value: number;
+  [key: string]: string | number;
 }
+
 
 interface TimelinePoint {
   time: string;
