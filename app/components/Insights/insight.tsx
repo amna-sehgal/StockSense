@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Doughnut } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import styles from './insight.module.css'
+import { navigate } from 'next/dist/client/components/segment-cache/navigation'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -85,11 +86,12 @@ export default function InsightsSummary({
         <div /> {/* spacer column */}
 
         <button
+          onClick={() => router.push('/search')}
           className={styles.analyzeButton}
-          onClick={() => router.push('/dashboard')}
         >
           🔄 Analyze Another Stock
         </button>
+
       </div>
 
       {/* ------------------ OVERALL INSIGHT ------------------ */}
@@ -186,13 +188,13 @@ export default function InsightsSummary({
           {(all_articles.length
             ? all_articles
             : [
-                {
-                  source: 'Bloomberg',
-                  text: 'Stocks surge as market optimism returns...',
-                  publishedAt: '2026-01-17',
-                  url: '#',
-                },
-              ]
+              {
+                source: 'Bloomberg',
+                text: 'Stocks surge as market optimism returns...',
+                publishedAt: '2026-01-17',
+                url: '#',
+              },
+            ]
           ).map((a, idx) => (
             <div key={idx} className={styles.articleCard}>
               <p>

@@ -26,6 +26,9 @@ export default function FinalCTA() {
       <p className={styles.disclaimer}>
         For informational purposes only. Not financial advice.
       </p>
+      <p className={styles.disclaimer1}>
+        Made with ❤️ by DebugDivas for BrAInWave
+      </p>
       
     </section>
   );

@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import styles from './searchPage.module.css'
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 export default function search() {
+  const router = useRouter();
   const texts = [
     "Analyzing market trends for opportunities.",
     "Real-time stock prices and news.",
@@ -13,6 +15,18 @@ export default function search() {
     "In-depth market and financial reports."
   ]
 
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  const [selectedMarketCap, setSelectedMarketCap] = useState("");
+  const [selectedSector, setSelectedSector] = useState("");
+  const [selectedRisk, setSelectedRisk] = useState("");
+  const [selectedTrend, setSelectedTrend] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState<any[]>([]);
 
   const stocksData = [
     {
@@ -129,15 +143,59 @@ export default function search() {
     },
   ]
 
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-  const [selectedMarketCap, setSelectedMarketCap] = useState("");
-  const [selectedSector, setSelectedSector] = useState("");
-  const [selectedRisk, setSelectedRisk] = useState("");
-  const [selectedTrend, setSelectedTrend] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState("");
+  // Handle search
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!searchQuery.trim()) return
+    
+    try {
+      setLoading(true)
+      
+      // Save search query to localStorage
+      localStorage.setItem('lastSearchQuery', searchQuery)
+      localStorage.setItem('lastAnalysis', JSON.stringify({
+        query: searchQuery,
+        timestamp: new Date().toISOString()
+      }))
+      
+      // Fetch analysis from backend
+      const response = await fetch('http://localhost:5000/api/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          query: searchQuery,
+          use_rss: true
+        })
+      })
+
+      if (response.ok) {
+        const analysisData = await response.json()
+        
+        // Save full analysis to localStorage
+        localStorage.setItem('lastAnalysis', JSON.stringify(analysisData))
+        
+        // Navigate to insights page
+        router.push('/insights')
+      } else {
+        console.error('Analysis failed')
+      }
+    } catch (error) {
+      console.error('Search error:', error)
+      // Still navigate even if analysis fails - frontend will use fallback data
+      router.push('/insights')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // Handle stock card click
+  const handleStockClick = (stock: any) => {
+    localStorage.setItem('lastSearchQuery', stock.symbol)
+    router.push('/insights')
+  }
 
   const filteredStocks = stocksData.filter(stock => {
     if (selectedMarketCap && stock.marketCap !== selectedMarketCap) return false;
@@ -145,6 +203,7 @@ export default function search() {
     if (selectedRisk && stock.risk !== selectedRisk) return false;
     if (selectedTrend && stock.trend !== selectedTrend) return false;
     if (selectedPrice && stock.priceRange !== selectedPrice) return false;
+    if (searchQuery && !stock.symbol.toLowerCase().includes(searchQuery.toLowerCase()) && !stock.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     return true;
   });
 
@@ -200,6 +259,13 @@ export default function search() {
               type="text"
               placeholder="Search stocks..."
               className={styles.searchInput}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  handleSearch(e as any);
+                }
+              }}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
@@ -514,6 +580,8 @@ export default function search() {
                   transition={{ duration: 0.5, ease: "easeOut", delay: stock.id * 0.05 }}
                   whileHover={{ scale: 1.05, boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)" }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => handleStockClick(stock)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <div className={styles.stockHeader}>
                     <img

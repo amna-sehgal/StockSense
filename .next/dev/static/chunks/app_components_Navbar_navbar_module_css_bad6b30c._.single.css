@@ -1,0 +1,91 @@
+/* [project]/app/components/Navbar/navbar.module.css [app-client] (css) */
+.navbar-module__6gFg2a__navbar {
+  z-index: 50;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  background: #0000008c;
+  border: 1px solid #10b9814d;
+  border-radius: 18px;
+  align-items: center;
+  width: calc(100% - 4rem);
+  max-width: 1400px;
+  height: 72px;
+  margin: 0 auto;
+  display: flex;
+  position: sticky;
+  top: 1rem;
+  box-shadow: 0 0 30px #10b98140, inset 0 0 20px #10b98126;
+}
+
+.navbar-module__6gFg2a__navLeft {
+  flex: 0 0 30%;
+  padding-left: 2rem;
+}
+
+.navbar-module__6gFg2a__brand {
+  letter-spacing: -.02em;
+  background: linear-gradient(120deg, #10b981, #6ee7b7);
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px #10b98199;
+  -webkit-background-clip: text;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+.navbar-module__6gFg2a__navRight {
+  flex: 0 0 70%;
+  justify-content: flex-end;
+  gap: 2.2rem;
+  padding-right: 2rem;
+  display: flex;
+}
+
+.navbar-module__6gFg2a__navLink {
+  color: #d1fae5;
+  padding: .3rem 0;
+  font-size: .95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .3s;
+  position: relative;
+}
+
+.navbar-module__6gFg2a__navLink:after {
+  content: "";
+  background: linear-gradient(90deg, #10b981, #6ee7b7);
+  width: 0%;
+  height: 2px;
+  transition: width .3s;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  box-shadow: 0 0 12px #10b981e6;
+}
+
+.navbar-module__6gFg2a__navLink:hover:after {
+  width: 100%;
+}
+
+.navbar-module__6gFg2a__navLink {
+  padding-bottom: 4px;
+  transition: all .3s;
+  position: relative;
+}
+
+.navbar-module__6gFg2a__navLink:hover {
+  color: #10b981;
+}
+
+.navbar-module__6gFg2a__active:after {
+  content: "";
+  background: linear-gradient(90deg, #10b981, #34d399, #3bf6c7);
+  border-radius: 2px;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 8px #10b981, 0 0 16px #3bf6be;
+}
+
+/*# sourceMappingURL=app_components_Navbar_navbar_module_css_bad6b30c._.single.css.map*/

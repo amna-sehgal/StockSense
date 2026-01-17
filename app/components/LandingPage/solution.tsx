@@ -22,6 +22,7 @@ export default function Solution() {
         StockSense AI aggregates real-time data from trusted news sources and
         social media, applies financial-grade AI sentiment analysis, and delivers
         a clear sentiment score.
+        
         <br /><br />
         <strong>No noise. Just insight.</strong>
       </motion.p>

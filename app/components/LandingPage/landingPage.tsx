@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import styles from './landing.module.css'
-import WorldSignals from './WorldSignals'
+import ArrowChart from './ArrowChart'
 
 const headlines = [
   'Decode Market Sentiment',
@@ -15,7 +15,6 @@ export default function LandingPage() {
   return (
     <section className={styles.hero}>
       <div className={styles.heroInner}>
-        {}
         <div className={styles.leftContent}>
           <div className={styles.headingWrapper}>
             <TypingLine texts={headlines} />
@@ -26,15 +25,13 @@ export default function LandingPage() {
           </p>
         </div>
 
-        {}
         <div className={styles.rightContent}>
-          <WorldSignals />
+          <ArrowChart />
         </div>
       </div>
     </section>
   )
 }
-
 
 
 function TypingLine({ texts }: { texts: string[] }) {
@@ -71,10 +68,3 @@ function TypingLine({ texts }: { texts: string[] }) {
     </h1>
   )
 }
-
-
-
-
-
-
-

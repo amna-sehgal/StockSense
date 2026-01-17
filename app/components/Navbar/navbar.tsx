@@ -10,9 +10,9 @@ export default function Navbar() {
   const links = [
     { name: 'Home', href: '/' },
     { name: 'Stock Search', href: '/search' },
-    { name: 'Sentiment Dashboard', href: '/dashboard' },
-    { name: 'News + Social Feed', href: '/feed' },
-    { name: 'Insights Summary', href: '/insight' },
+    { name: 'Sentiment Dashboard', href: 'https://sentimenta-sa.streamlit.app/' },
+    { name: 'News + Social Feed', href: '/news&feed' },
+    { name: 'Insights Summary', href: '/insights' },
   ];
 
   return (

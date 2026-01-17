@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./news.module.css";
 import { motion } from "framer-motion";
+import { useRouter } from 'next/navigation'
+
 import {
   PieChart,
   Pie,
@@ -47,11 +49,16 @@ interface TimelinePoint {
   greed: number;
 }
 
+
 // -------------------- Page --------------------
 export default function MarketFeedPage() {
+  const router = useRouter();
+
   const [activeTab, setActiveTab] = useState<"news" | "social">("news");
   const [feed, setFeed] = useState<FeedItem[]>([]);
-  const [sentimentStats, setSentimentStats] = useState<SentimentStat[]>([]);
+  const [sentimentStats, setSentimentStats] = useState<
+    { name: string; value: number }[]
+  >([]);
   const [themeStats, setThemeStats] = useState<ThemeStat[]>([]);
   const [timeline, setTimeline] = useState<TimelinePoint[]>([]);
 
@@ -61,31 +68,49 @@ export default function MarketFeedPage() {
 
   // -------------------- Data Loader --------------------
   useEffect(() => {
-    // ================= BACKEND =================
-    // Fetch analyzed data from your FastAPI / Flask backend
-    // Example:
-    // GET /api/market-feed?symbol=RELIANCE
-    //
-    // Response structure:
-    // {
-    //   news: FeedItem[],
-    //   social: FeedItem[],
-    //   sentimentDistribution: SentimentStat[],
-    //   themeFrequency: ThemeStat[],
-    //   sentimentTimeline: TimelinePoint[],
-    //   aiSummary: string
-    // }
+    const fetchNewsFeed = async () => {
+      try {
+        // Get query from localStorage or use default
+        const lastQuery = localStorage.getItem('lastSearchQuery') || 'NIFTY 50';
 
-    fetch("/api/market-feed")
-      .then((res) => res.json())
-      .then((data) => {
-        setFeed(activeTab === "news" ? data.news : data.social);
-        setSentimentStats(data.sentimentDistribution);
-        setThemeStats(data.themeFrequency);
-        setTimeline(data.sentimentTimeline);
-        setAiSummary(data.aiSummary);
-      })
-      .catch(() => {
+        // Fetch data from backend
+        const response = await fetch(`http://localhost:5000/api/news/${encodeURIComponent(lastQuery)}`);
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch news data');
+        }
+
+        const data = await response.json();
+
+        // Convert backend data to FeedItem format
+        const newsItems: FeedItem[] = data.news.map((article: any) => ({
+          title: article.title,
+          sentiment: article.sentiment as Sentiment,
+          source: article.source,
+          time: new Date(article.publishedAt).toLocaleTimeString() || "N/A",
+          image: article.image || "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3",
+          theme: "Market News",
+          impact: article.sentiment === "positive" ? "high" : article.sentiment === "negative" ? "high" : "medium"
+        }));
+
+        const socialItems: FeedItem[] = data.social.map((article: any) => ({
+          title: article.title,
+          sentiment: article.sentiment as Sentiment,
+          source: article.source,
+          time: new Date(article.publishedAt).toLocaleTimeString() || "N/A",
+          image: article.image || "https://images.unsplash.com/photo-1611162616475-46b635cb6868",
+          theme: "Social Media",
+          impact: "medium"
+        }));
+
+        setFeed(activeTab === "news" ? newsItems : socialItems);
+        setSentimentStats(data.sentimentDistribution || []);
+        setThemeStats(data.themeFrequency || []);
+        setTimeline(data.sentimentTimeline || []);
+        setAiSummary(data.aiSummary || "AI analysis unavailable at this moment.");
+      } catch (error) {
+        console.error('Error fetching news data:', error);
+
         // -------------------- DEMO FALLBACK --------------------
         const demoNews: FeedItem[] = [
           {
@@ -172,22 +197,30 @@ export default function MarketFeedPage() {
           { time: "10:30", fear: 38, greed: 62 },
           { time: "11:30", fear: 45, greed: 55 },
         ]);
-      });
+      }
+    };
+
+    fetchNewsFeed();
   }, [activeTab]);
 
   // -------------------- UI Starts --------------------
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <button className={styles.backBtn}>
+        <button
+          className={styles.backBtn}
+          onClick={() => {
+            window.location.href = 'https://sentimenta-sa.streamlit.app/'
+          }}
+        >
           <ArrowLeft size={18} /> Back to Dashboard
         </button>
         <h1>Market News & Social Sentiment</h1>
-        <button className={styles.insightBtn}>
+        <button className={styles.insightBtn} onClick={() => router.push('/insights')}>
           Insights Summary <TrendingUp size={16} />
         </button>
       </div>
-            {/* ================== CHARTS ================== */}
+      {/* ================== CHARTS ================== */}
       <div className={styles.chartGrid}>
         {/* Sentiment Donut */}
         <div className={styles.chartCard}>
@@ -275,13 +308,12 @@ export default function MarketFeedPage() {
             <img src={item.image} alt={item.title} className={styles.cardImg} />
             <div className={styles.cardBody}>
               <span
-                className={`${styles.badge} ${
-                  item.sentiment === "positive"
-                    ? styles.positive
-                    : item.sentiment === "negative"
+                className={`${styles.badge} ${item.sentiment === "positive"
+                  ? styles.positive
+                  : item.sentiment === "negative"
                     ? styles.negative
                     : styles.neutral
-                }`}
+                  }`}
               >
                 {item.sentiment.toUpperCase()}
               </span>
@@ -297,7 +329,7 @@ export default function MarketFeedPage() {
         ))}
       </div>
 
-            {/* ================== AI SUMMARY ================== */}
+      {/* ================== AI SUMMARY ================== */}
       <div className={styles.chartCard} style={{ marginTop: "2rem" }}>
         <h3>🧠 AI Market Summary</h3>
         <p>{aiSummary}</p>
